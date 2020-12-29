@@ -14,6 +14,10 @@ using namespace std;
 #define RIGHT 77
 #define DOWN  80
 
+
+gtyftfjfjvfbtuynhilmjoijkpojlig yufjybfku
+haha
+
 void gotoxy(int x, int y)
 { // Allows to move inside the terminal using coordinates
 	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
