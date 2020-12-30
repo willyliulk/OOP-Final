@@ -145,9 +145,9 @@ public:
 	}
 	void Draw()
 	{ // This is our spaceship
-		gotoxy(x, y);     printf("    ▲  ");
-		gotoxy(x, y + 1); printf("    ■  ");
-		gotoxy(x, y + 2); printf("◢▲■▲◣");
+		gotoxy(x, y);     printf("  ▲  ");
+		gotoxy(x, y + 1); printf("◢■◣");
+		gotoxy(x, y + 2); printf("■■■");
 	}
 	void Erase()
 	{ // This was or spaceship
@@ -165,9 +165,9 @@ public:
 		else
 		{
 			Erase(); // You can omit this part, is meant to visually tell you that you were hit
-			gotoxy(x, y);     printf("    **    ");
-			gotoxy(x, y + 1); printf("    **    ");
-			gotoxy(x, y + 2); printf("**********");
+			gotoxy(x, y);     printf("  **  ");
+			gotoxy(x, y + 1); printf(" **** ");
+			gotoxy(x, y + 2); printf("******");
 			Sleep(100);
 		}
 	}
@@ -175,9 +175,9 @@ public:
 	{ // When you lose a heart :c
 		hp--;
 		Erase();
-		gotoxy(x, y);     printf("    **    ");
-		gotoxy(x, y + 1); printf("    **    ");
-		gotoxy(x, y + 2); printf("**********");
+		gotoxy(x, y);     printf("  **  ");
+		gotoxy(x, y + 1); printf(" **** ");
+		gotoxy(x, y + 2); printf("******");
 		Sleep(100);
 		Erase();
 		gotoxy(x, y);     printf(" * * ");
@@ -235,7 +235,7 @@ public:
 	}
 	void Collision(SpaceShip &ss) // The asteroid finds the spaceship
 	{
-		if (((x >= ss.X() - 2) && (x <= ss.X() + 9)) && ((y >= ss.Y()) && (y <= ss.Y() + 2)))
+		if (((x >= ss.X() - 2) && (x <= ss.X() + 5)) && ((y >= ss.Y()) && (y <= ss.Y() + 2)))
 		{ // Depending on the shape of the spaceship you have to tinker when the asteroid really hits you
 			ss.Damage(); // The asteroid hurts
 			gotoxy(x, y); printf("   "); // And the asteroid is "destroyed"
@@ -327,7 +327,7 @@ int main()
 			n = key;
 			if (key == ' ')
 			{ // If you press the space bar you add a bullet to the bullet list
-				Bullets.push_back(new Bullet(ss.X() + 6, ss.Y() - 1));
+				Bullets.push_back(new Bullet(ss.X() + 3, ss.Y() - 1));
 			}
 			else if (key == 'c')
 			{ // If you press the space bar you add a bullet to the bullet list
@@ -412,8 +412,8 @@ int main()
 						if (bullet == Bullets.end()) break;
 						delete(*asteroid);// And the asteroid
 						asteroid = Asteroids.erase(asteroid);
-						if (asteroid == Asteroids.end()) goto aternosLEend;						Asteroids.push_back(new Asteroid(rand() % 78 + 1, rand() % 4 + 3)); // in order to not reduce the number of asteroids I add one everytime one is destroyed
-						score += 10; // And you get 10 points for a job well done :3
+						if (asteroid == Asteroids.end()) goto aternosLEend;
+						Asteroids.push_back(new Asteroid(rand() % 78 + 1, rand() % 4 + 3)); // in order to not reduce the number of asteroids I add one everytime one is destroyed						score += 10; // And you get 10 points for a job well done :3
 					}
 				}
 
