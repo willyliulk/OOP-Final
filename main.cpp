@@ -62,38 +62,38 @@ void DrawGameLimits()
 void WelcomeMessage()
 { // The main title, I tried to center it as best as I could
 	int x = 13;
-	int y = 6;
-	gotoxy(x, y); printf(" _____                    _____ _           _           ");
-	gotoxy(x, y + 1); printf("|   __|___ ___ ___ ___   |   __| |_ ___ ___| |_ ___ ___ ");
-	gotoxy(x, y + 2); printf("|__   | . | .'|  _| -_|  |__   |   | . | . |  _| -_|  _|");
-	gotoxy(x, y + 3); printf("|_____|  _|__,|___|___|  |_____|_|_|___|___|_| |___|_|  ");
-	gotoxy(x, y + 4); printf("      |_|");
-	gotoxy(x, y + 6); printf("                 Press any key to play");
-	gotoxy(x, y + 7); printf("         developed by Carlos Hernandez C. - 2016");
-	gotoxy(x, y + 8); printf("           revised by #define NO.1 ours   - 2020");
+	int y = 6;                                                                             
+	gotoxy(x, y);     printf("______  ___                    ______ __             __             ");
+	gotoxy(x, y + 1); printf("|     \\ |  |____ __ _______    |   __|| |_ ____ ____ | |_ ____ ____ ");
+	gotoxy(x, y + 2); printf("|  |\\  \\|  || . |\\ \\/ /| . \\   |__   ||   || . || . ||  _|| ._||  _|");
+	gotoxy(x, y + 3); printf("|__| \\_____||___| \\__/ |__\\_\\  |_____||_|_||___||___||_|  |___||_|  ");
+	gotoxy(x + 3, y + 6); printf("                 Press any key to play");
+	gotoxy(x + 3, y + 7); printf("         developed by Carlos Hernandez C. - 2016");
+	gotoxy(x + 3, y + 8); printf("           revised by #define NO.1 ours   - 2020");
 }
 void GameOverDefeatMessage()
 { // When you lose the game you see this in screen
-	int a_x = 30;
+	int a_x = 27;
 	int a_y = 11;
 	int b_x = a_x + 23;
 	int b_y = a_y + 4;
 	DrawWindowFrame(a_x, a_y, b_x, b_y);
-	gotoxy(a_x + 1, a_y + 2); printf("      DEFEAT!!!");
+	gotoxy(a_x + 1, a_y + 2); printf("        DEFEAT!!!");
 }
 void GameOverVictoryMessage()
 { // When you win the game you see this in screen
-	int a_x = 30;
+	int a_x = 27;
 	int a_y = 11;
 	int b_x = a_x + 23;
 	int b_y = a_y + 4;
 	DrawWindowFrame(a_x, a_y, b_x, b_y);
-	gotoxy(a_x + 1, a_y + 2); printf("      VICTORY!!!");
+	gotoxy(a_x + 1, a_y + 2); printf("        VICTORY!!!");
 }
 void SpecialMessage()
 { // A special message for your special needs
 	DrawWhiteSpace(1, 1, 80, 24);
-	gotoxy(30, 11); printf("Thanks for playing!＼（^▽^）／");
+	DrawWindowFrame(19, 11, 58, 15);
+	gotoxy(24, 13); printf("Thanks for playing!＼（^▽^）／");
 }
 class SpaceShip
 {
