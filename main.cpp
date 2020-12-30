@@ -22,6 +22,7 @@ void gotoxy(int x, int y)
 	dwPos.Y = y; // Starts from 0
 	SetConsoleCursorPosition(hCon, dwPos);
 }
+
 void HideCursor()
 { // Hides the cursor :3
 	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
