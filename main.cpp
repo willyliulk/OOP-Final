@@ -30,7 +30,7 @@ void HideCursor()
 	cci.bVisible = FALSE;
 	SetConsoleCursorInfo(hCon, &cci);
 }
-
+//aoihgawhglfkjahkf
 void DrawWhiteSpace(int a_x, int a_y, int b_x, int b_y)
 { // To clean a certain space in the terminal
 	for (int i = a_x; i < b_x; i++)
