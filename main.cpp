@@ -372,7 +372,8 @@ int main()
 					delete(*asteroid);// And the asteroid
 					asteroid = Asteroids.erase(asteroid);
 					Asteroids.push_back(new Asteroid(rand() % 78 + 1, rand() % 4 + 3)); // in order to not reduce the number of asteroids I add one everytime one is destroyed
-					if (asteroid == Asteroids.end()) goto aternosLEend;						Asteroids.push_back(new Asteroid(rand() % 78 + 1, rand() % 4 + 3)); // in order to not reduce the number of asteroids I add one everytime one is destroyed
+					if (asteroid == Asteroids.end()) goto aternosLEend;						
+					Asteroids.push_back(new Asteroid(rand() % 78 + 1, rand() % 4 + 3)); // in order to not reduce the number of asteroids I add one everytime one is destroyed
 					score += 10; // And you get 10 points for a job well done :3
 				}
 			}
