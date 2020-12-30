@@ -70,7 +70,7 @@ void WelcomeMessage()
 { // The main title, I tried to center it as best as I could
 	int x = 13;
 	int y = 6;
-	gotoxy(x, y    ); printf(" _____                    _____ _           _           ");
+	gotoxy(x, y); printf(" _____                    _____ _           _           ");
 	gotoxy(x, y + 1); printf("|   __|___ ___ ___ ___   |   __| |_ ___ ___| |_ ___ ___ ");
 	gotoxy(x, y + 2); printf("|__   | . | .'|  _| -_|  |__   |   | . | . |  _| -_|  _|");
 	gotoxy(x, y + 3); printf("|_____|  _|__,|___|___|  |_____|_|_|___|___|_| |___|_|  ");
@@ -146,7 +146,7 @@ public:
 	void Draw()
 	{ // This is our spaceship
 		gotoxy(x, y);     printf("    ▲  ");
-		gotoxy(x, y+1); printf("    ■  ");
+		gotoxy(x, y + 1); printf("    ■  ");
 		gotoxy(x, y + 2); printf("◢▲■▲◣");
 	}
 	void Erase()
@@ -231,20 +231,20 @@ public:
 	}
 	void Draw()
 	{
-		gotoxy(x, y); printf("*"); // Fear the asteroids!!
+		gotoxy(x, y); printf("***"); // Fear the asteroids!!
 	}
 	void Collision(SpaceShip &ss) // The asteroid finds the spaceship
 	{
 		if (((x >= ss.X()) && (x <= ss.X() + 5)) && ((y >= ss.Y()) && (y <= ss.Y() + 2)))
 		{ // Depending on the shape of the spaceship you have to tinker when the asteroid really hits you
 			ss.Damage(); // The asteroid hurts
-			gotoxy(x, y); printf(" "); // And the asteroid is "destroyed"
+			gotoxy(x, y); printf("   "); // And the asteroid is "destroyed"
 			x = rand() % 74 + 3; // The truth is it just teleports to the top of the map
 			y = 4;
 		}
 		else
 		{
-			gotoxy(x, y); printf(" ");
+			gotoxy(x, y); printf("   ");
 			y++;
 			if (y > 22)
 			{ // If the asteroid goes too down in the map
@@ -327,11 +327,11 @@ int main()
 			n = key;
 			if (key == ' ')
 			{ // If you press the space bar you add a bullet to the bullet list
-				Bullets.push_back(new Bullet(ss.X()+6, ss.Y() - 1));
+				Bullets.push_back(new Bullet(ss.X() + 6, ss.Y() - 1));
 			}
 			else if (key == 'c')
 			{ // If you press the space bar you add a bullet to the bullet list
-				Bullets.push_back(new Bullet(ss.X()+6, ss.Y() - 1));
+				Bullets.push_back(new Bullet(ss.X() + 6, ss.Y() - 1));
 			}
 		}
 		if (n == 'c') {
@@ -375,8 +375,10 @@ int main()
 						gotoxy(bulX, bulY); printf(" "); // Makes the bullet invisible
 						gotoxy(bulX + 1, bulY); printf(" ");
 						gotoxy(bulX - 1, bulY); printf(" ");
-						gotoxy(astX, astY); printf("X"); printf(" ");
-						gotoxy(astX, astY+1); printf("X"); printf(" "); // I still have my doubts in this part, but it tries to signal a collision, sometimes the X remains theme...
+						gotoxy(astX, astY); printf("X");
+						gotoxy(astX, astY + 1); printf("X"); // I still have my doubts in this part, but it tries to signal a collision, sometimes the X remains theme...
+						gotoxy(astX, astY); printf(" ");
+						gotoxy(astX, astY + 1); printf(" ");
 						delete(*bullet); // You delete the bullet
 						bullet = Bullets.erase(bullet);
 						delete(*asteroid);// And the asteroid
@@ -389,8 +391,10 @@ int main()
 					if ((astX == bulX) && ((astY == bulY) || (astY + 1 == bulY)))
 					{ //Chances are that in the Y axis they never reach the same value, that case must be considered
 						gotoxy(bulX, bulY); printf(" "); // Makes the bullet invisible
-						gotoxy(astX, astY); printf("X"); printf(" ");
-						gotoxy(astX, astY+1); printf("X"); printf(" "); // I still have my doubts in this part, but it tries to signal a collision, sometimes the X remains theme...
+						gotoxy(astX, astY); printf("X");
+						gotoxy(astX, astY + 1); printf("X"); // I still have my doubts in this part, but it tries to signal a collision, sometimes the X remains theme...
+						gotoxy(astX, astY); printf(" ");
+						gotoxy(astX, astY + 1); printf(" ");
 						delete(*bullet); // You delete the bullet
 						bullet = Bullets.erase(bullet);
 						delete(*asteroid);// And the asteroid
