@@ -165,9 +165,9 @@ public:
 		else
 		{
 			Erase(); // You can omit this part, is meant to visually tell you that you were hit
-			gotoxy(x, y);     printf("  *  ");
-			gotoxy(x, y + 1); printf("  *  ");
-			gotoxy(x, y + 2); printf("*****");
+			gotoxy(x, y);     printf("    **    ");
+			gotoxy(x, y + 1); printf("    **    ");
+			gotoxy(x, y + 2); printf("**********");
 			Sleep(100);
 		}
 	}
@@ -175,9 +175,9 @@ public:
 	{ // When you lose a heart :c
 		hp--;
 		Erase();
-		gotoxy(x, y);     printf("  *  ");
-		gotoxy(x, y + 1); printf("  *  ");
-		gotoxy(x, y + 2); printf("*****");
+		gotoxy(x, y);     printf("    **    ");
+		gotoxy(x, y + 1); printf("    **    ");
+		gotoxy(x, y + 2); printf("**********");
 		Sleep(100);
 		Erase();
 		gotoxy(x, y);     printf(" * * ");
@@ -193,7 +193,7 @@ public:
 		{ // If you still have a heart or more
 			energy = 5;
 		}
-		else
+		else 
 		{ // If you don't
 			imDead = true;
 		}
@@ -235,7 +235,7 @@ public:
 	}
 	void Collision(SpaceShip &ss) // The asteroid finds the spaceship
 	{
-		if (((x >= ss.X()) && (x <= ss.X() + 5)) && ((y >= ss.Y()) && (y <= ss.Y() + 2)))
+		if (((x >= ss.X()-2) && (x <= ss.X() + 9)) && ((y >= ss.Y()) && (y <= ss.Y() + 2)))
 		{ // Depending on the shape of the spaceship you have to tinker when the asteroid really hits you
 			ss.Damage(); // The asteroid hurts
 			gotoxy(x, y); printf("   "); // And the asteroid is "destroyed"
