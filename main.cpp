@@ -312,7 +312,7 @@ public:
 	{
 		gotoxy(x, y); printf(" ");
 		y--;
-		gotoxy(x, y); printf("."); // The shape of the bullet
+		gotoxy(x, y); printf("!"); // The shape of the bullet
 	}
 };
 int main()
